@@ -1,5 +1,3 @@
-// Основной файл бота (Bot.kt)
-
 import com.justai.jaicf.builder.BotBuilder
 import com.justai.jaicf.builder.Scenario
 import com.justai.jaicf.channel.http.asHttpBotRequest
@@ -10,13 +8,11 @@ import com.justai.jaicf.api.BotRequest
 import com.justai.jaicf.api.hasQuery
 import com.justai.jaicf.reactions.Reactions
 
-// Создание сценария бота
 val mainScenario = Scenario {
     
-    // Состояние /hello - приветствие
     state("/hello") {
         activators {
-            regex("привет|здравствуй|hello|hi|добрый")
+            regex("привет|здравствуй|hello|hi|добрый", RegexOption.IGNORE_CASE)
             intent("/hello")
         }
         
@@ -29,10 +25,9 @@ val mainScenario = Scenario {
         }
     }
     
-    // Состояние /weather - прогноз погоды
     state("/weather") {
         activators {
-            regex("погода|прогноз|температура|weather|forecast")
+            regex("погода|прогноз|температура|weather|forecast", RegexOption.IGNORE_CASE)
             intent("/weather")
         }
         
@@ -46,10 +41,9 @@ val mainScenario = Scenario {
         }
     }
     
-    // Состояние /currency - курс валют
     state("/currency") {
         activators {
-            regex("курс|валюта|доллар|евро|рубль|currency|exchange rate")
+            regex("курс|валюта|доллар|евро|рубль|currency|exchange rate", RegexOption.IGNORE_CASE)
             intent("/currency")
         }
         
@@ -62,7 +56,6 @@ val mainScenario = Scenario {
         }
     }
     
-    // Состояние /NoMatch - обработка неизвестных интентов
     state("/NoMatch") {
         activators {
             intent("/NoMatch")
@@ -79,7 +72,6 @@ val mainScenario = Scenario {
     }
 }
 
-// Функция для создания бота
 fun createBot() = BotBuilder {
     addScenario(mainScenario)
 }
