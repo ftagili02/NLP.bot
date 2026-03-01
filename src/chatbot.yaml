@@ -1,18 +1,3 @@
-name: zb-cailapub
-
-entryPoint: main.sc
-
-botEngine: v2
-language: ru
-
-tests:
-  include:
-    - test.xml
-
-nlp:
-  intentNoMatchThresholds:
-    phrases: 0.2
-    patterns: 0.2
 states:
   - id: "/hello"
     activators:
@@ -43,7 +28,7 @@ states:
       - say:
           - "Курс доллара: 92.50 руб., евро: 99.80 руб."
           - "На сегодня: USD - 92.45 руб., EUR - 99.75 руб."
-          - "Актуальный курс: доллар 92.55 руб., евро: 99.85 руб."
+          - "Актуальный курс: доллар 92.55 руб., евро 99.85 руб."
 
   - id: "/NoMatch"
     activators:
